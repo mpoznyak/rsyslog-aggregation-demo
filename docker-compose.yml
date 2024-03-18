@@ -1,0 +1,26 @@
+version: '3.8'
+
+services:
+  rsyslog:
+    image: jumanjiman/rsyslog
+    volumes:
+      - ./rsyslog/rsyslog.conf:/etc/rsyslog.conf
+      - ./logs:/var/log
+    ports:
+      - "514:514/udp"
+    restart: unless-stopped
+
+  service-a:
+    build: ./service-a  # Path to your Spring application's Dockerfile
+    environment:
+      - SYSLOG_SERVER=rsyslog
+      - SYSLOG_PORT=514
+    depends_on:
+      - rsyslog
+  service-b:
+    build: ./service-b  # Path to your Spring application's Dockerfile
+    environment:
+      - SYSLOG_SERVER=rsyslog
+      - SYSLOG_PORT=514
+    depends_on:
+      - rsyslog
