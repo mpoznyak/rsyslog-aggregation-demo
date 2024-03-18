@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<configuration debug="true">
+
+
+    <appender name="CONSOLE" class="ch.qos.logback.core.ConsoleAppender">
+        <encoder>
+            <pattern>[ServiceA] - %msg %n</pattern>
+            <charset>utf8</charset>
+        </encoder>
+    </appender>
+
+    <appender name="SYSLOG" class="ch.qos.logback.classic.net.SyslogAppender">
+        <syslogHost>${SYSLOG_HOST}</syslogHost>
+        <port>${SYSLOG_PORT}</port>
+        <facility>USER</facility>
+        <suffixPattern>[ServiceA] - %msg %n</suffixPattern>
+    </appender>
+
+    <root level="INFO" additivity="false">
+        <appender-ref ref="CONSOLE"/>
+        <appender-ref ref="SYSLOG"/>
+    </root>
+</configuration>

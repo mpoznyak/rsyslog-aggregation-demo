@@ -1,0 +1,7 @@
+/service-a/build/
+/service-b/build/
+/service-b/.gradle/
+/service-a/.gradle/
+/.idea/
+/.gradle/
+/service-dumb/build/

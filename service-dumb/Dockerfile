@@ -2,7 +2,7 @@ FROM openjdk:17-jdk-slim
 
 VOLUME /tmp
 
-ARG JAR_FILE=build/libs/service-b-1.0.jar
+ARG JAR_FILE=build/libs/service-dumb-1.0.jar
 COPY ${JAR_FILE} app.jar
 
 EXPOSE 8080

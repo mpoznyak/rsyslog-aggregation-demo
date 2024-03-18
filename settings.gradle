@@ -1,0 +1,5 @@
+rootProject.name = 'rsyslog-aggregation-demo'
+include 'logging'
+include 'service-a'
+include 'service-b'
+include 'service-dumb'

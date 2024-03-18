@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<configuration debug="true">
+
+
+    <appender name="CONSOLE" class="ch.qos.logback.core.ConsoleAppender">
+        <encoder>
+            <pattern>%-4relative %d %-5level [ %t ] [%mdc{X-Forwarded-For}] [%mdc{X-B3-TraceId},%mdc{X-B3-SpanId}] %-55logger{13} | %m %n</pattern>
+            <charset>utf8</charset>
+        </encoder>
+    </appender>
+
+    <root level="INFO" additivity="false">
+        <appender-ref ref="CONSOLE"/>
+    </root>
+</configuration>
